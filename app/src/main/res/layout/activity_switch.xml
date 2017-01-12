@@ -59,26 +59,18 @@
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/currently_owes">
+        android:layout_below="@+id/currently_owes"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/payees">
         <RadioButton android:id="@+id/andrew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/andrew_string"
-            android:onClick="onRadioButtonClicked"/>
+            android:text="@string/andrew_string" />
         <RadioButton android:id="@+id/diana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/diana_string"
-            android:onClick="onRadioButtonClicked"/>
+            android:text="@string/diana_string" />
     </RadioGroup>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/someone_paid"
-        android:id="@+id/currently_paid"
-        android:layout_below="@+id/currently_owes"
-        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -86,7 +78,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/amount_paid"
-        android:layout_below="@+id/currently_paid"
+        android:layout_below="@+id/payees"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="62dp" />
 
@@ -97,5 +89,6 @@
         android:id="@+id/payIt"
         android:onClick="calculatePayr"
         android:layout_below="@+id/amount_paid"
-        android:layout_alignStart="@+id/currently_paid" />
+        android:layout_alignStart="@+id/amount_paid"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class SwitchActivity extends AppCompatActivity {
@@ -26,12 +28,6 @@ public class SwitchActivity extends AppCompatActivity {
         float savedAmount = sharedPref.getFloat(getString(R.string.saved_payr_amount), 0F);
 
         setCurrentlyOwesText(savedPayr, savedAmount);
-
-        /*********************************************/
-//        Context context = this;
-//        TextView prevPaidText = (TextView) findViewById(R.id.lastPaid);
-//        prevPaidText.setText(savedPayr);
-        /*****************************************/
     }
 
     private void setCurrentlyOwesText(String ower, float amount)
@@ -44,8 +40,8 @@ public class SwitchActivity extends AppCompatActivity {
         TextView owesAmount = (TextView)(findViewById(R.id.currently_owes));
         owesAmount.setText(String.format(getString(R.string.owes_amount), amount));
         // set who pays next text
-        TextView someonePaid = (TextView) findViewById(R.id.currently_paid);
-        someonePaid.setText(String.format(getString(R.string.someone_paid), ower));
+        //TextView someonePaid = (TextView) findViewById(R.id.currently_paid);
+        //someonePaid.setText(String.format(getString(R.string.someone_paid), ower));
     }
 
     /** Called when the user clicks the pay button */
@@ -74,8 +70,17 @@ public class SwitchActivity extends AppCompatActivity {
         float amountPaid = Float.parseFloat(amountPaidText.getText().toString());
 
         String savedPayr = sharedPref.getString(getString(R.string.saved_payr), getString(R.string.diana_string));
+        String currentPayr = getCurrentPayr();
 
-        float diff = savedAmount - amountPaid;
+        float diff = savedAmount;
+        if(currentPayr.equals(savedPayr))
+        {
+            diff += amountPaid;
+        }
+        else
+        {
+            diff -= amountPaid;
+        }
         String newPayr = savedPayr;
         if(diff <= 0)
         {
@@ -84,6 +89,13 @@ public class SwitchActivity extends AppCompatActivity {
         }
         setCurrentlyOwesText(newPayr, diff);
         saveAmount(newPayr, diff);
+    }
+
+    private String getCurrentPayr()
+    {
+        RadioGroup group = (RadioGroup) findViewById(R.id.payees);
+        RadioButton button = (RadioButton) findViewById(group.getCheckedRadioButtonId());
+        return button.getText().toString();
     }
 
     private String swapPayr(String prevPayer)
