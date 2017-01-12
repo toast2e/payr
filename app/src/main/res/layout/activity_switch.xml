@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.andrew.payr.SwitchActivity">
+
+    <!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/who_pays"
+        android:id="@+id/whoPays"
+        android:layout_below="@+id/button"
+        android:layout_alignStart="@+id/currently_paid" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/andrew_string"
+        android:id="@+id/lastPaid"
+        android:layout_below="@+id/whoPays"
+        android:layout_alignEnd="@+id/swapit" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paid_button"
+        android:id="@+id/swapit"
+        android:onClick="switchPayr"
+        android:layout_below="@+id/lastPaid"
+        android:layout_centerHorizontal="true" />
+        -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/who_owes"
+        android:id="@+id/owes_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/owes_amount"
+        android:id="@+id/currently_owes"
+        android:layout_below="@+id/owes_text"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currently_owes">
+        <RadioButton android:id="@+id/andrew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/andrew_string"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/diana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diana_string"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/someone_paid"
+        android:id="@+id/currently_paid"
+        android:layout_below="@+id/currently_owes"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/amount_paid"
+        android:layout_below="@+id/currently_paid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pay_up_button"
+        android:id="@+id/payIt"
+        android:onClick="calculatePayr"
+        android:layout_below="@+id/amount_paid"
+        android:layout_alignStart="@+id/currently_paid" />
+</RelativeLayout>
