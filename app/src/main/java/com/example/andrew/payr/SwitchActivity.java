@@ -36,33 +36,9 @@ public class SwitchActivity extends AppCompatActivity {
         TextView whoOwes = (TextView) findViewById(R.id.owes_text);
         whoOwes.setText(String.format(getString(R.string.who_owes), ower));
         // set owes amount text
-        Log.i("g", "setting owesAmount = " + amount);
         TextView owesAmount = (TextView)(findViewById(R.id.currently_owes));
         owesAmount.setText(String.format(getString(R.string.owes_amount), amount));
-        // set who pays next text
-        //TextView someonePaid = (TextView) findViewById(R.id.currently_paid);
-        //someonePaid.setText(String.format(getString(R.string.someone_paid), ower));
     }
-
-    /** Called when the user clicks the pay button */
-    /*public void switchPayr(View view) {
-        Context context = this;
-        TextView prevPaidText = (TextView) findViewById(R.id.lastPaid);
-        String prevPayer = prevPaidText.getText().toString();
-        String nextPayr;
-        if(prevPayer != null && prevPayer.equals(context.getString(R.string.andrew_string)))
-        {
-            nextPayr = context.getString(R.string.diana_string);
-        }
-        else
-        {
-            nextPayr = context.getString(R.string.andrew_string);
-        }
-        prevPaidText.setText(nextPayr);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(context.getString(R.string.saved_payr), nextPayr);
-        editor.commit();
-    }*/
 
     public void calculatePayr(View view) {
         float savedAmount = sharedPref.getFloat(getString(R.string.saved_payr_amount), 0F);
