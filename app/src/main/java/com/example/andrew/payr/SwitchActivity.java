@@ -43,13 +43,19 @@ public class SwitchActivity extends AppCompatActivity {
     public void calculatePayr(View view) {
         float savedAmount = sharedPref.getFloat(getString(R.string.saved_payr_amount), 0F);
         EditText amountPaidText = (EditText) findViewById(R.id.amount_paid);
-        float amountPaid = Float.parseFloat(amountPaidText.getText().toString());
+        float amountPaid = 0;
+        try {
+            amountPaid = Float.parseFloat(amountPaidText.getText().toString());
+        } catch (NumberFormatException e)
+        {
+            return;
+        }
 
         String savedPayr = sharedPref.getString(getString(R.string.saved_payr), getString(R.string.diana_string));
         String currentPayr = getCurrentPayr();
 
         float diff = savedAmount;
-        if(currentPayr.equals(savedPayr))
+        if(!currentPayr.equals(savedPayr))
         {
             diff += amountPaid;
         }
