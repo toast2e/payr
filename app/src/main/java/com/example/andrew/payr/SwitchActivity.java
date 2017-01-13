@@ -71,6 +71,9 @@ public class SwitchActivity extends AppCompatActivity {
         }
         setCurrentlyOwesText(newPayr, diff);
         saveAmount(newPayr, diff);
+
+        // reset the editable text to empty
+        amountPaidText.setText("");
     }
 
     private String getCurrentPayr()
