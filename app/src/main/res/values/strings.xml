@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">Payr</string>
-    <string name="who_pays">Who Pays Next:</string>
-    <string name="paid_button">I PAID!</string>
     <string name="who_owes">%1$s owes:</string>
     <string name="owes_amount">$%1$.2f</string>
-    <string name="someone_paid">%1$s paid:</string>
     <string name="pay_up_button">PAY UP!</string>
     <string name="preference_file_key">payrPreferences</string>
     <string name="andrew_string">ANDREW</string>
